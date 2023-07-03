@@ -124,9 +124,9 @@ if upload is not None:
     test_img=np.expand_dims(test_img,axis=0)
     test_img=preprocess_input(test_img)
     feature=img_model.predict(test_img)
-    # ans=Predict_Caption(model,feature,tokenizer,max_len_capt)
-    # ans=" ".join(ans.split(" ")[1:-1])
-    # st.write(ans)
+    ans=Predict_Caption(model,feature,tokenizer,max_len_capt)
+    ans=" ".join(ans.split(" ")[1:-1])
+    st.write(ans)
 
 # if st.button('Test Result'):
 #    st.write(ans)
