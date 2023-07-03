@@ -94,7 +94,7 @@ st.header("TEST IT YOURSELF :smile:")
 
 test_path="./Test/"
 upload = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
-if upload is not None:
+# if upload is not None:
     # image_bytes = upload.read()
     # st.image(image_bytes, caption="Uploaded Image", use_column_width=True)
     # with open(os.path.join(test_path,"test.jpg"),"wb") as f: 
