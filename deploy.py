@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 # from matplotlib import pyplot as plt
 # import cv2 as cv
-import os
+# import os
 # import PIL
 from PIL import Image, ImageOps
 # import pickle
@@ -25,65 +25,65 @@ img_model=Model(inputs=img_model.inputs,outputs=img_model.layers[-2].output)
 
 model = keras.models.load_model('./Image_Caption.h5')
 Data_Dir="./Dataset/"
-with open(os.path.join(Data_Dir,"captions.txt"),mode='r') as f:
-    next(f)
-    captions_doc=f.read()
+# with open(os.path.join(Data_Dir,"captions.txt"),mode='r') as f:
+#     next(f)
+#     captions_doc=f.read()
     
-#CREATING A MAPPING OF IMAGES TO CAPTIONS
-mapping={}
-i=0
-for line in captions_doc.split('\n'):
-    #EXTRACT IMAGE ID
-    img_id=(line.split(',')[0]).split('.')[0]
-    caption=(line.split(',')[1:])
-    # print(caption)
-    caption=' '.join(caption)
-    if img_id not in mapping:
-        mapping[img_id]=[]
-    mapping[img_id].append(caption)
+# #CREATING A MAPPING OF IMAGES TO CAPTIONS
+# mapping={}
+# i=0
+# for line in captions_doc.split('\n'):
+#     #EXTRACT IMAGE ID
+#     img_id=(line.split(',')[0]).split('.')[0]
+#     caption=(line.split(',')[1:])
+#     # print(caption)
+#     caption=' '.join(caption)
+#     if img_id not in mapping:
+#         mapping[img_id]=[]
+#     mapping[img_id].append(caption)
 
-for id,captions in mapping.items():
-    for i in range(len(captions)):
-        caption=captions[i]
-        caption=caption.lower()
-        caption=caption.replace('[^A-Za-z]', '')
-        caption=caption.replace('\s+','')
-        caption='startsent '+" ".join([word for word in caption.split() if len(word)>1])+' endsent'
-        captions[i]=caption
+# for id,captions in mapping.items():
+#     for i in range(len(captions)):
+#         caption=captions[i]
+#         caption=caption.lower()
+#         caption=caption.replace('[^A-Za-z]', '')
+#         caption=caption.replace('\s+','')
+#         caption='startsent '+" ".join([word for word in caption.split() if len(word)>1])+' endsent'
+#         captions[i]=caption
 
-all_captions=[]
-for key,captions in mapping.items():
-    for i in range(len(captions)):
-        all_captions.append(captions[i])
-all_captions=all_captions[0:-1]
+# all_captions=[]
+# for key,captions in mapping.items():
+#     for i in range(len(captions)):
+#         all_captions.append(captions[i])
+# all_captions=all_captions[0:-1]
 
-tokenizer=Tokenizer()
-tokenizer.fit_on_texts(all_captions)
-vocab_size=len(tokenizer.word_index)+1
+# tokenizer=Tokenizer()
+# tokenizer.fit_on_texts(all_captions)
+# vocab_size=len(tokenizer.word_index)+1
 
-max_len_capt=max(len(caption.split()) for caption in all_captions)
+# max_len_capt=max(len(caption.split()) for caption in all_captions)
 
-def idx_to_word(i,tokenizer):
-    for word,index in tokenizer.word_index.items():
-        if(i==index):
-            return word
-    return None
+# def idx_to_word(i,tokenizer):
+#     for word,index in tokenizer.word_index.items():
+#         if(i==index):
+#             return word
+#     return None
 
-def Predict_Caption(model,image_feature,tokenizer,max_length):
-    text='startsent'
-    for i in range(max_length):
-        seq=tokenizer.texts_to_sequences([text])[0]
-        seq=pad_sequences([seq],maxlen=max_length)
-        y_pred=model.predict([image_feature,seq])
-        y_pred=np.argmax(y_pred)
-        word=idx_to_word(y_pred,tokenizer)
-        if word is None:
-            break
-        text=text+" "+word
-        if(word=="endsent"):
-            break
+# def Predict_Caption(model,image_feature,tokenizer,max_length):
+#     text='startsent'
+#     for i in range(max_length):
+#         seq=tokenizer.texts_to_sequences([text])[0]
+#         seq=pad_sequences([seq],maxlen=max_length)
+#         y_pred=model.predict([image_feature,seq])
+#         y_pred=np.argmax(y_pred)
+#         word=idx_to_word(y_pred,tokenizer)
+#         if word is None:
+#             break
+#         text=text+" "+word
+#         if(word=="endsent"):
+#             break
         
-    return text
+#     return text
 
 st.title("IMAGE TO CAPTION GENERATOR :brain:")
 
@@ -119,9 +119,9 @@ if upload is not None:
     test_img=np.expand_dims(test_img,axis=0)
     test_img=preprocess_input(test_img)
     feature=img_model.predict(test_img)
-    ans=Predict_Caption(model,feature,tokenizer,max_len_capt)
-    ans=" ".join(ans.split(" ")[1:-1])
-    st.write(ans)
+    # ans=Predict_Caption(model,feature,tokenizer,max_len_capt)
+    # ans=" ".join(ans.split(" ")[1:-1])
+    # st.write(ans)
 
 # if st.button('Test Result'):
 #    st.write(ans)
