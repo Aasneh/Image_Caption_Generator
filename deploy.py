@@ -24,7 +24,7 @@ img_model=VGG16()
 img_model=Model(inputs=img_model.inputs,outputs=img_model.layers[-2].output)
 
 model = keras.models.load_model('./Image_Caption.h5')
-Data_Dir="./captions.txt"
+Data_Dir="./captions.txt/"
 with open(os.path.join(Data_Dir,""),mode='r') as f:
     next(f)
     captions_doc=f.read()
