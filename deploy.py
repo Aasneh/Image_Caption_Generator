@@ -4,7 +4,7 @@ import tensorflow as tf
 # from matplotlib import pyplot as plt
 # import cv2 as cv
 # import os
-# import PIL
+import PIL
 from PIL import Image, ImageOps
 # import pickle
 # import pathlib
