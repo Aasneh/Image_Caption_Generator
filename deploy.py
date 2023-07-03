@@ -20,8 +20,8 @@ from tensorflow.keras.models import Model
 # from tensorflow.keras.layers import Input, Dense, LSTM, Embedding, Dropout, add
 import streamlit as st
 
-img_model=VGG16()
-img_model=Model(inputs=img_model.inputs,outputs=img_model.layers[-2].output)
+# img_model=VGG16()
+# img_model=Model(inputs=img_model.inputs,outputs=img_model.layers[-2].output)
 
 model = keras.models.load_model('./Image_Caption.h5')
 # Data_Dir="./Dataset/"
