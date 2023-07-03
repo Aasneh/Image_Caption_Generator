@@ -24,7 +24,7 @@ img_model=VGG16()
 img_model=Model(inputs=img_model.inputs,outputs=img_model.layers[-2].output)
 
 model = keras.models.load_model('./Image_Caption.h5')
-Data_Dir="./Dataset/"
+# Data_Dir="./Dataset/"
 # with open(os.path.join(Data_Dir,"captions.txt"),mode='r') as f:
 #     next(f)
 #     captions_doc=f.read()
@@ -112,13 +112,13 @@ if upload is not None:
     # ans=" ".join(ans.split(" ")[1:-1])
     # st.write(ans)
 ##################################################################
-    image = Image.open(upload)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
-    image = ImageOps.fit(image,(224,224), Image.ANTIALIAS)
-    test_img=img_to_array(image)
-    test_img=np.expand_dims(test_img,axis=0)
-    test_img=preprocess_input(test_img)
-    feature=img_model.predict(test_img)
+    # image = Image.open(upload)
+    # st.image(image, caption="Uploaded Image", use_column_width=True)
+    # image = ImageOps.fit(image,(224,224), Image.ANTIALIAS)
+    # test_img=img_to_array(image)
+    # test_img=np.expand_dims(test_img,axis=0)
+    # test_img=preprocess_input(test_img)
+    # feature=img_model.predict(test_img)
     # ans=Predict_Caption(model,feature,tokenizer,max_len_capt)
     # ans=" ".join(ans.split(" ")[1:-1])
     # st.write(ans)
