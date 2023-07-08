@@ -33,17 +33,29 @@ startsent black dog                     and
 .......
 ```
 
-**Embedding :** Embeddings translate large sparse vectors into a lower-dimensional space that preserves semantic relationships.<b>
+**Embedding :** Embeddings translate large sparse vectors into a lower-dimensional space that preserves semantic relationships..<br>
 **LSTM :** Special type of **Recurrent Neural Networks (RNNs)**. LSTM has short term and long term cells which help in retaining previously acquired information.
-Forget gate decides whether to reject the previously acquired information or not. In our working output of the current state depends on the **previously acquired textual outputs and image features** . Thus LSTM comes in handy for this model.<b>
+Forget gate decides whether to reject the previously acquired information or not. In our working output of the current state depends on the **previously acquired textual outputs and image features** . Thus LSTM comes in handy for this model..<br>
 **adams optimizer :** Adaptive Moment Estimation is the technique used to update the gradient descent. Used for sparse data.<br>
 **categorical_crossentropy :** Categorical cross-entropy is used when true labels are one-hot encoded. Hence we use them.<br>
 Now we have added **2 Dense** layers which take the image and textual features into account and last layers uses **softmax** activation function to generate output<br>
+<br>
 Model Summary Available at <https://github.com/Aasneh/Image_Caption_Generator/blob/master/modelsummary.txt><br>
+<br>
 ![Alt text](ARCHITECTURE.png)
 <br>
+<br>
 ### :bar_chart:  RESULTS AND TESTING :
-
+<br>
+<br>
+![Alt text](TEST1.png)
+<br>
+<br>
+<br>
+<br>
+![Alt text](TEST2.png)
+<br>
+<br>
 
 
 link :https://imagecaptiongenerator.streamlit.app/
