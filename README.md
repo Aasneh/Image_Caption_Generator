@@ -46,16 +46,10 @@ Model Summary Available at <https://github.com/Aasneh/Image_Caption_Generator/bl
 <br>
 <br>
 ### :bar_chart:  RESULTS AND TESTING :
-<br>
-<br>
 ![Alt text](TEST1.png)
-<br>
-<br>
 <br>
 <br>
 ![Alt text](TEST2.png)
 <br>
 <br>
-
-
-link :https://imagecaptiongenerator.streamlit.app/
+**Deployed on Streamlit. Check it out! :** <https://imagecaptiongenerator.streamlit.app/>
