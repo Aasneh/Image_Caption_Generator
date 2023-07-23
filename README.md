@@ -1,5 +1,6 @@
-# Image Caption Generator
+<h1 align="center">Image Caption Generator</h1>
 
+![Alt text](banner.jpg)
 # Table of Contents
 - Table of Contents
 - Basic Overview
