@@ -15,6 +15,8 @@
 * Generating captions, short descriptions and thumbnails for an image may be required and can be a time consuming task. This Project is an effort to effectively resolve such problems.<br>
 
 # :film_projector: Demo :
+https://github.com/Aasneh/Image_Caption_Generator/assets/96459729/15d0da9a-02a0-4436-9091-998b52c5f18a
+
 
 
 # :floppy_disk:  DATA COLLECTION AND PREPROCESSING:
